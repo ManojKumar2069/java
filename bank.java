@@ -4,6 +4,7 @@ class c_account
 	static String customer_name;
 	static int account_num,ammount,account_type;
 	static double balance=150;
+	static int min_balance=100;
 	void getcus(String c,int t,int acc)
 	{
 		customer_name=c;
@@ -35,6 +36,19 @@ class c_account
 		balance=(balance*sub)-balance;
 		System.out.println("The updated balance is"+balance);
 	}
+	void min_bal(){
+		if(balance<min_balance)
+		{
+			double rate=1.0;
+			int time=1;
+			double panalty=balance*rate*time/100;
+			System.out.println("The panalty amount is "+panalty);
+		}
+		else{
+			System.out.println("Your balance is "+balance);
+			System.out.println("You have unloced cheque features");
+		}
+	}	
 
 }
 public class s_account extends c_account
@@ -87,6 +101,7 @@ public class s_account extends c_account
 	}
 	else{
 		System.out.println("You have a current account");
+		obj1.min_bal();
 	}
 }
 }
